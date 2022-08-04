@@ -42,6 +42,12 @@ public class ArtistaController {
 	}
 	
 	@PreAuthorize("hasRole('USER')")
+	@GetMapping("/login/artista")
+	public ResponseEntity<ArtistaDTO> retornaArtistaByEmailAndSenha(String email, String senha) throws Exception{
+		return ResponseEntity.status(HttpStatus.OK).body(artistaService.retornaArtistaPorEmailAndSenha(email, senha));
+	}
+	
+	@PreAuthorize("hasRole('USER')")
 	@PutMapping("/atualiza_artista/{id}")
 	public ResponseEntity<ArtistaDTO> atualizaArtistaById(@PathVariable(value = "id") UUID id,@RequestBody InfoArtista infoArtista) throws Exception{
 		return ResponseEntity.status(HttpStatus.OK).body(artistaService.atualizaArtista(id, infoArtista));

@@ -11,4 +11,5 @@ import ifpe.br.model.Artista;
 @Repository
 public interface ArtistaRepository extends JpaRepository<Artista, UUID> {
 	Optional<Artista> findByEmail(String email);
+	Optional<Artista> findByEmailAndSenha(String email, String senha);
 }

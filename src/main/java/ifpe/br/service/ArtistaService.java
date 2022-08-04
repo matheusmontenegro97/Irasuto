@@ -48,6 +48,12 @@ public class ArtistaService {
 		return mapper.map(artista);
 	}
 
+	public ArtistaDTO retornaArtistaPorEmailAndSenha(String email, String password) throws Exception{
+		Artista artista = artistaRepository.findByEmailAndSenha(email, password)
+				.orElseThrow(() -> new Exception("E-mail ou senha estão incorretos!"));;
+		return mapper.map(artista);
+		}
+	
 	@Transactional
 	public ArtistaDTO atualizaArtista(UUID id, InfoArtista infoArtista) throws Exception {
 		Artista artista = artistaRepository.findById(id)

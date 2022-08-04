@@ -41,8 +41,8 @@ public class Artista implements Serializable, UserDetails {
 	@Column(nullable = false)
 	private String senha;
 	private String celular;
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	private List<RoleModel> roles = new ArrayList<RoleModel>(Arrays.asList(new RoleModel("ROLE_USER")));
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<RoleModel> roles  = new ArrayList<RoleModel>(Arrays.asList(new RoleModel("ROLE_USER")));
 
 	public UUID getId() {
 		return id;
