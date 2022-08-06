@@ -16,6 +16,7 @@ public class ArtistaDTOMapper {
 		artistaDTO.setEmail(artista.getEmail());
 		artistaDTO.setDtNascimento(artista.getDtNascimento());
 		artistaDTO.setCelular(artista.getCelular());
+		artistaDTO.setUrlFotoPerfil(artista.getUrlFotoPerfil());
 		
 		return artistaDTO;
 	}

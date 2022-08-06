@@ -41,6 +41,7 @@ public class Artista implements Serializable, UserDetails {
 	@Column(nullable = false)
 	private String senha;
 	private String celular;
+	private String urlFotoPerfil;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<RoleModel> roles  = new ArrayList<RoleModel>(Arrays.asList(new RoleModel("ROLE_USER")));
 
@@ -98,6 +99,14 @@ public class Artista implements Serializable, UserDetails {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+	
+	public String getUrlFotoPerfil() {
+		return urlFotoPerfil;
+	}
+
+	public void setUrlFotoPerfil(String urlFotoPerfil) {
+		this.urlFotoPerfil = urlFotoPerfil;
 	}
 
 	@Override

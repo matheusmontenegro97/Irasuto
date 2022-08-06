@@ -34,7 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers(HttpMethod.POST ,"/api/v1/criaArtista");
+	    web.ignoring().antMatchers(HttpMethod.POST ,"/api/v1/criaArtista")
+	    .antMatchers(HttpMethod.POST, "/api/v1/criaPerfilArtista");
 	}
 
 	@Override

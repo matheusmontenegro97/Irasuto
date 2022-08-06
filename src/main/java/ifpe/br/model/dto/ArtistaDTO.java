@@ -12,6 +12,7 @@ public class ArtistaDTO {
 	private LocalDate dtNascimento;
 	private String email;
 	private String celular;
+	private String urlFotoPerfil;
 
 	public UUID getId() {
 		return id;
@@ -51,6 +52,14 @@ public class ArtistaDTO {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+
+	public String getUrlFotoPerfil() {
+		return urlFotoPerfil;
+	}
+
+	public void setUrlFotoPerfil(String urlFotoPerfil) {
+		this.urlFotoPerfil = urlFotoPerfil;
 	}
 
 }
