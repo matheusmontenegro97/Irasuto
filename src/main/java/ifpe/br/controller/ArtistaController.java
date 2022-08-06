@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ifpe.br.model.Artista;
 import ifpe.br.model.InfoArtista;
 import ifpe.br.model.PasswordArtista;
+import ifpe.br.model.RequestLogin;
 import ifpe.br.model.dto.ArtistaDTO;
 import ifpe.br.service.ArtistaService;
 
@@ -42,9 +43,9 @@ public class ArtistaController {
 	}
 	
 	@PreAuthorize("hasRole('USER')")
-	@GetMapping("/login/artista")
-	public ResponseEntity<ArtistaDTO> retornaArtistaByEmailAndSenha(String email, String senha) throws Exception{
-		return ResponseEntity.status(HttpStatus.OK).body(artistaService.retornaArtistaPorEmailAndSenha(email, senha));
+	@PostMapping("/login/artista")
+	public ResponseEntity<ArtistaDTO> retornaArtistaByEmailAndSenha(@RequestBody RequestLogin request) throws Exception{
+		return ResponseEntity.status(HttpStatus.OK).body(artistaService.retornaArtistaPorEmailAndSenha(request.getEmail(), request.getSenha()));
 	}
 	
 	@PreAuthorize("hasRole('USER')")
