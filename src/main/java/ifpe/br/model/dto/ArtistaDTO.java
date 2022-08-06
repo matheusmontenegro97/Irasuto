@@ -3,9 +3,12 @@ package ifpe.br.model.dto;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ArtistaDTO {
 	private UUID id;
 	private String nomeCompleto;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private LocalDate dtNascimento;
 	private String email;
 	private String celular;
